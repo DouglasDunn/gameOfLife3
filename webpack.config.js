@@ -7,6 +7,9 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      GameOfLife: "app/components/GameOfLife.jsx",
+      GameBoard: "app/components/GameBoard.jsx",
+      GameBoardButtons: "app/components/GameBoardButtons.jsx"
     },
     extensions: ['', '.js', '.jsx']
   },

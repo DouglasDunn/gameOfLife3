@@ -1,0 +1,25 @@
+.gameBoard {
+  width: 675px;
+  height: 675px;
+}
+
+.row {
+  background: black;
+  width: 675px;
+  height: 15px;
+}
+
+.tile {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid silver;
+}
+
+.alive {
+  background: red;
+}
+
+#start {
+    pointer-events: none;
+}

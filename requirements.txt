@@ -1,0 +1,34 @@
+V1 Requirements
+(x) initial State should be a game board with random values of 0 and 1 (initialize to a function name createGameBoard).
+(x) default props should be a width of 50 and a height of 50.
+(x) createInitialGameBoard will obtain the 0 and 1 values using math.random and math.round and set them to a multidimensional array representing the game board.
+
+V2 Requirements
+(x) pass gameBoardArray, width and height into GameBoard component.
+(x) create a gameBoard using div's as tiles (2 dimensional array). If value is 1, tile is alive, else dead.
+(x) style game board.
+(x) render game board to the screen.
+
+V3 Requirements
+(x) Create a componentDidMount method that will invoke the incrementGeneration method.
+(x) incrementGenereation method will have a setInterval function with a callback named newGeneration.
+(x) newGeneration will create a multidimensional array with new values depending on the current cell's neighbors.
+(x) We will set the state of the gameBoardArray to the new array created.
+
+V4 Requirements
+(x) Create three buttons: start, stop, and clear.
+(x) Create onClick functions for them
+(x) start() will start interval
+(x) stop() will clear intervalId
+(x) clear will clear the two-dimensional gameBoard array.
+
+V5 Requirements
+(x) Create a generationCounter that incremenents in the nextGeneration method and sets the generationCounter state.
+(x) Create a checkIfGameBoardIsEmpty method that checks if all the elements of the game board equals to 0.
+(x) If method returns true, set generationCounter to 0, clear intervalId, (and maybe set pointer-events for start and stop buttons. May not be needed).
+(x) render generationCounter to the screen
+
+V6 Requirements
+() Give each tile an onClick event listener that fires the tileClicked method.
+() tileClicked method will check if the tile has the class alive. Use e.target
+() if true, remove alive class, else give the tile the alive class.
