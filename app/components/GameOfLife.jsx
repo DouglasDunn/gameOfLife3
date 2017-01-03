@@ -118,15 +118,41 @@ var GameOfLife =  React.createClass({
 
     return gameBoardArray;
   },
+  handleTileClicked: function(tileId) {
+    var {gameBoardArray} = this.state;
+    var {height, width} = this.props;
+    var counter = 0;
+    var newArray = [];
+
+    for (var i = 0; i < height; i++) {
+      newArray.push([]);
+
+      for (var j = 0; j < width; j++) {
+        if (counter == tileId) {
+
+          if (gameBoardArray[i][j]) {
+            newArray[i].push(0);
+          } else {
+            newArray[i].push(1);
+          }
+        } else {
+          newArray[i].push(gameBoardArray[i][j]);
+        }
+        counter++;
+      }
+    }
+
+    this.setState({
+      gameBoardArray: newArray
+    });
+  },
   start: function() {
     this.incrementGeneration();
-    console.log("start");
   },
   stop: function() {
     var {intervalId} = this.state;
 
     clearInterval(intervalId);
-    console.log("stop");
   },
   clear: function() {
     var {gameBoardArray, intervalId} = this.state;
@@ -146,16 +172,15 @@ var GameOfLife =  React.createClass({
       gameBoardArray: newGameBoardArray,
       generationCounter: 0
     });
-    console.log("clear");
   },
   render: function() {
     var {width, height} = this.props;
     var {gameBoardArray, intervalId, generationCounter} = this.state;
 
     return (
-      <div>
+      <div className="container">
         <h1>Game of life!</h1>
-        <GameBoard width={width} height={height} gameBoardArray={gameBoardArray}/>
+        <GameBoard width={width} height={height} gameBoardArray={gameBoardArray} onTileClicked={this.handleTileClicked}/>
         <GameBoardButtons start={this.start} stop={this.stop} clear={this.clear} generationCounter={generationCounter}/>
       </div>
     );
